@@ -2,6 +2,9 @@
 
 ![Portfolio Preview](https://coderom.databoltahai.in/Content/projectAssets/Images/About/coderom-home-preview.png)
 
+<!-- Add CSS styles to the image -->
+<img src="https://coderom.databoltahai.in/Content/projectAssets/Images/About/coderom-home-preview.png" alt="Portfolio Preview" style="max-width: 75%; height: auto;">
+
 ## Introduction
 
 Welcome to my 🌐 portfolio! I'm CoderOm, a dedicated developer, and this is my digital space to showcase my journey, projects, and skills. Whether you're an employer, a fellow developer, or just curious, you're in the right place to explore my work.
