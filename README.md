@@ -1,6 +1,6 @@
 ﻿# 🚀 Portfolio - CoderOm
 
-![Portfolio Preview](https://coderom.databoltahai.in/Content/projectAssets/Images/About/coderom-home-preview.png){:width="75%"}
+![Portfolio Preview](https://coderom.databoltahai.in/Content/projectAssets/Images/About/coderom-home-preview.png)
 
 ## Introduction
 
