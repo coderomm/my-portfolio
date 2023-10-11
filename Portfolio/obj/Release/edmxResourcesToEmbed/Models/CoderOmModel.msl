@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CoderOmModelStoreContainer" CdmEntityContainer="DbCoderOmEntities">
+    <EntitySetMapping Name="AboutDetailsTbls">
+      <EntityTypeMapping TypeName="CoderOmModel.AboutDetailsTbl">
+        <MappingFragment StoreEntitySet="AboutDetailsTbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Logo" ColumnName="Logo" />
+          <ScalarProperty Name="Image1" ColumnName="Image1" />
+          <ScalarProperty Name="Image2" ColumnName="Image2" />
+          <ScalarProperty Name="About" ColumnName="About" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Instagram" ColumnName="Instagram" />
+          <ScalarProperty Name="Twitter" ColumnName="Twitter" />
+          <ScalarProperty Name="Youtube" ColumnName="Youtube" />
+          <ScalarProperty Name="Linkedin" ColumnName="Linkedin" />
+          <ScalarProperty Name="Github" ColumnName="Github" />
+          <ScalarProperty Name="Resume" ColumnName="Resume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdminTbls">
+      <EntityTypeMapping TypeName="CoderOmModel.AdminTbl">
+        <MappingFragment StoreEntitySet="AdminTbl">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="uName" ColumnName="uName" />
+          <ScalarProperty Name="uPassword" ColumnName="uPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjectsTbls">
+      <EntityTypeMapping TypeName="CoderOmModel.ProjectsTbl">
+        <MappingFragment StoreEntitySet="ProjectsTbl">
+          <ScalarProperty Name="GithubLink" ColumnName="GithubLink" />
+          <ScalarProperty Name="rts" ColumnName="rts" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="LiveLink" ColumnName="LiveLink" />
+          <ScalarProperty Name="Framework" ColumnName="Framework" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="Clientname" ColumnName="Clientname" />
+          <ScalarProperty Name="Image2" ColumnName="Image2" />
+          <ScalarProperty Name="Image1" ColumnName="Image1" />
+          <ScalarProperty Name="Detail" ColumnName="Detail" />
+          <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,48 @@
+﻿@model Portfolio.Models.ProjectsTbl
+@{
+    ViewBag.Title = Model.Title + " | Coder Om";
+}
+
+<!-- SITE CONTENT -->
+<div class="wrapper">
+
+    <div class="cont">
+        <section class="news-article top_90">
+            <article>
+                <div class="row article-image bottom_30">
+                    <figure class="col-sm-6">
+                        <img src="~/Content/projectAssets/Images/Projects/@Model.Image1">
+                    </figure>
+                    <figure class="col-sm-6">
+                        <img src="~/Content/projectAssets/Images/Projects/@Model.Image2">
+                    </figure>
+                </div>
+                <small class="category">@Model.Framework</small>
+                <h1 class="title">@Model.Title </h1>
+                <div class="information bottom_30">@Model.Clientname, <span>@Model.rts.Value.ToString("dd MMM yyyy")</span></div>
+                <p>@Model.Subtitle</p>
+
+                <p>@Html.Raw(@Model.Detail)</p>
+                <div class="row">
+                    <div class="col-12 col-sm-6">
+                        @if (Model.LiveLink != null)
+                        {
+                            <a style="color: #212529;text-decoration:none !important" href="@Model.LiveLink">Live Link : <small class="category">@Model.LiveLink</small></a>
+                        }
+                    </div>
+                    <div class="col-12 col-sm-6">
+                        @if (Model.GithubLink != null)
+                        {
+                            <a class="mt-3" style="color: #212529; text-decoration: none !important" href="@Model.LiveLink">Github Link : <small class="category">@Model.GithubLink</small></a>
+                        }
+                    </div>
+                </div>
+
+
+
+            </article>
+
+        </section>
+
+    </div> <!-- cont end -->
+</div> <!-- wrapper end -->

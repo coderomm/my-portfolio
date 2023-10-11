@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Contact Coder Om";
+}
+
+<!-- SITE CONTENT -->
+<div class="wrapper">
+    <section class="titlebar">
+        <h1 class="page-title"><span>Contact </span>us</h1>
+        <div id="particles-js"></div>
+    </section>
+
+    <hr class="col-md-6 bottom_60">
+
+    <div class="cont">
+        <section class="contact col-md-8 offset-md-2 top_90">
+            <div class="contact-info text-center">
+                <p>@ViewBag.About.Address </p>
+                <a href="hi@gorge.com">@ViewBag.About.Email</a>
+                <p>@ViewBag.About.Mobile</p>
+            </div>
+            <div class="contact-form top_90">
+                <form action="@Url.Action("SendEnquiry", "Home")" method="post" class="row" id="enquiryForm">
+                    <div class="col-md-6">
+                        <input class="inp" type="text" placeholder="Name" name="name" id="name">
+                    </div>
+                    <div class="col-md-6">
+                        <input class="inp" type="text" placeholder="Email" name="email" id="email">
+                    </div>
+                    <div class="col-md-12">
+                        <textarea placeholder="Your Message" rows="6" class="col-md-12 form-message" id="message" name="message"></textarea>
+                    </div>
+
+                    <div class="col-md-12 h6 validation-messages mb-2" style="display: none; color: #212121;"></div>
+
+                    <div class="col-md-12 text-center">
+                        <input type="submit" value="Submit" class="site-btn2">
+                    </div>
+                </form>
+            </div>
+
+
+
+        </section>
+
+    </div>
+    <!-- cont end -->
+</div>
+<!-- wrapper end -->
+

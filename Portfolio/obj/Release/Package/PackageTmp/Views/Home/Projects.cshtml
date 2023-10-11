@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Portfolio.Models.ProjectsTbl>
+@{
+    ViewBag.Title = "All Work | Coder Om";
+}
+
+<!-- SITE CONTENT -->
+<div class="wrapper">
+    <section class="titlebar">
+        <h1 class="page-title"><span>All </span>Work</h1>
+        <div id="particles-js"></div>
+    </section>
+
+    <hr class="col-md-6 bottom_60">
+
+    <div class="cont">
+        <section class="our-news">
+            <div class="row">
+                @foreach (var i in Model)
+                {
+                    <!-- a news -->
+                    <div class="col-md-4 col-sm-6 news bottom_30">
+                        <article class="news-box">
+                            <figure>
+                                <a href="@Url.RouteUrl("ProjectDetails", new { projectname = Url.Encode(i.Title.Replace(" ", "-").ToLower())})">
+                                    <img src="~/Content/projectAssets/Images/Projects/@i.Image1" title="@i.Title">
+                                </a>
+                            </figure>
+
+                            <div class="information d-flex justify-content-between flex-column">
+                                <p class="d-inline-block m-0">
+                                    <small>@i.Framework</small>
+                                </p>
+                                <p class="d-inline-block m-0 ms-auto">
+                                    @i.Clientname, <span>@i.rts.Value.ToString("dd MMM yyyy")</span>
+                                </p>
+                            </div>
+
+
+                            <a style="text-decoration:none !important" href="@Url.RouteUrl("ProjectDetails", new { projectname = Url.Encode(i.Title.Replace(" ", "-").ToLower())})">
+                                <h4 class="title my-2">@i.Title</h4>
+                            </a>
+
+
+                            <div class="row">
+                                <div class="col-6">
+                                    @if (i.LiveLink != null)
+                                    {
+                                        <a style="text-decoration:none !important" href="@i.LiveLink">
+                                            <small data-link="@i.LiveLink" class="fw-bold">Live Link</small>
+                                        </a>
+                                    }
+                                </div>
+                                <div class="col-6">
+                                    @if (i.GithubLink != null)
+                                    {
+                                        <a style="text-decoration:none !important" href="@i.GithubLink">
+                                            <small data-link="@i.GithubLink" class="fw-bold">Github Link</small>
+                                        </a>
+                                    }
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                }
+            </div>
+        </section>
+    </div>
+    <!-- cont end -->
+</div>
+<!-- wrapper end -->

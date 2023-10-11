@@ -1,0 +1,166 @@
+﻿@model Portfolio.Models.ViewModel
+@{
+    ViewBag.Title = "Don't Worry, You Are Encrypted & Secured";
+}
+<style>
+    .home-profile-image::before {
+        animation: anim 30s infinite;
+        background-image: url('../../Content/projectAssets/Images/About/@ViewBag.About.Image1');
+        border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+        content: "";
+        filter: drop-shadow(0 0 2vmin Thistle) drop-shadow(0 1vmin 1vmin Orchid) drop-shadow(1vmin 0vmin 2vmin MediumSlateBlue);
+        height: 300px;
+        position: absolute;
+        width: 300px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .home-profile-image-mob::before {
+        animation: anim 30s infinite;
+        background-image: url('../../Content/projectAssets/Images/About/@ViewBag.About.Image1');
+        border-radius: 30% 70% 53% 47% / 26% 46% 54% 74%;
+        content: "";
+        filter: drop-shadow(0 0 2vmin Thistle) drop-shadow(0 1vmin 1vmin Orchid) drop-shadow(1vmin 0vmin 2vmin MediumSlateBlue);
+        height: 300px;
+        width: 300px;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        display: block;
+    }
+</style>
+<!-- SITE CONTENT -->
+<div class="wrapper">
+    <section class="home">
+        <div id="particles-js"></div>
+        <div class="home-content">
+            <div class="d-md-none home-profile-image-mob img-fluid w-25 rounded-3 mb-4"></div>
+            <div class="d-none d-md-block home-profile-image img-fluid w-25 rounded-3 position-absolute" style="right:0;"></div>
+            <h1 class="hero-title position-relative">Coder <br><span>Om Sharma</span></h1>
+            <p class="top_45 w-100 w-md-75">
+                I specialize in the entire webapp softwares, webs, HTML, CSS, Javascript, JQuery, Ajax as well as
+                <span class="element" data-text1="ASP.NET" data-text2="C#" data-text3="Angular JS." data-text4=".NET CORE 7" data-text5=".NET MVC" data-loop="true"
+                      data-backdelay="1500"></span>
+            </p>
+            <div id="dwnldResume" class="mt-2 mb-5 codedText fromRight position-absolute" style="width: 200px; z-index: 999999; border-radius: 3px; ">Download My Resume »</div>
+
+            <div class="social">
+                <a class="text">social links</a>
+                <div class="line"></div>
+                <a href="@Model.AboutDetailsTbl.Linkedin"><i class="fab fa-linkedin"></i> </a>
+                <a href="@Model.AboutDetailsTbl.Github"><i class="fab fa-github" aria-hidden="true"></i> </a>
+                <a href="@Model.AboutDetailsTbl.Twitter"><i class="fab fa-twitter" aria-hidden="true"></i> </a>
+                <a href="@Model.AboutDetailsTbl.Youtube"><i class="fab fa-youtube" aria-hidden="true"></i> </a>
+                <a href="@Model.AboutDetailsTbl.Instagram"><i class="fab fa-instagram" aria-hidden="true"></i> </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="cont mt-0 mt-md-4">
+        <section id="portfolio" class="portfolio">
+            <div class="portfolio-filter row">
+                <div class="cbp-filter-item cbp-filter-item-active">All Works</div>
+            </div>
+            <div id="grid-container">
+                <!-- Item -->
+                @foreach (var i in Model.ProjectsTbl)
+                {
+                <div class="cbp-item photography">
+                    <a href="@Url.RouteUrl("ProjectDetails", new { projectname = Url.Encode(i.Title.Replace(" ", "-").ToLower())})">
+                        <figure class="fig">
+                            <img src="~/Content/projectAssets/Images/Projects/@i.Image1" title="@i.Title" alt="">
+                            <figcaption>
+                                <h3>@i.Framework</h3>
+                                <p>@i.Clientname</p>
+                            </figcaption>
+                        </figure>
+                    </a>
+                    <div class="row">
+                        <div class="col-6">
+                            @if (i.LiveLink != null)
+                            {
+                                <a style="text-decoration:none !important" href="@i.LiveLink" class="news-article category">
+                                    <small data-link="@i.LiveLink" class="news-article category">Live Link</small>
+                                </a>
+                            }
+                        </div>
+                        <div class="col-6">
+                            @if (i.GithubLink != null)
+                            {
+                                <a style="text-decoration:none !important" href="@i.GithubLink" class="news-article category">
+                                    <small data-link="@i.GithubLink" class="news-article category">Github Link</small>
+                                </a>
+                            }
+                        </div>
+                    </div>                </div>
+                }
+                <!-- Item -->
+            </div>
+            <!-- load more button -->
+            <div id="port-loadMore" class="cbp-l-loadMore-button top_120 bottom_90">
+                <a href="~/all-work" class="site-btn btn-sm" rel="nofollow">
+                    <span class="cbp-l-loadMore-defaultText">
+                        Load More (<span class="cbp-l-loadMore-loadItems">2</span>)
+                    </span>
+                    @*<span class="cbp-l-loadMore-loadingText">Loading...</span>
+                        <span class="cbp-l-loadMore-noMoreLoading">No More Works</span>*@
+                </a>
+            </div>
+        </section>
+
+        <hr class="top_90 bottom_90 col-md-8">
+
+        <section class="widget-twitter top_60">
+            <div class="widget-title">
+                <h2 class="classic-title">Stay Tuned</h2>
+            </div>
+            <a href="@Model.AboutDetailsTbl.Linkedin" target="_blank" class="linkedin-account">Linkedin Profile</a>
+        </section>
+    </div>
+    <!-- cont end -->
+</div>
+<!-- SITE CONTENT end -->
+<script type="text/javascript">
+    document.querySelectorAll('.codedText').forEach((t)=>{
+  const arr1 = t.innerHTML.split('')
+  const arr2 = []
+  arr1.forEach( (char,i)=> arr2[i] = randChar() ) //fill arr2 with random characters
+  t.onpointerover = ()=>{
+    const tl = gsap.timeline()
+    let step = 0
+    tl.fromTo(t, {
+      innerHTML:arr2.join(''),
+      color:'#fff',
+        background:'#ea0026'
+    },{
+      duration:arr1.length/20, //duration based on text length
+      ease:'power4.in',
+      delay:0.1,
+      color:'#fff',
+      background:'#000',
+      onUpdate:()=>{
+        const p = Math.floor(tl.progress()*(arr1.length)) //whole number from 0 - text length
+        if (step != p) { //throttle the change of random characters
+          step = p
+          arr1.forEach( (char,i)=> arr2[i] = randChar() )
+          let pt1 = arr1.join('').substring(p, 0),
+              pt2 = arr2.join('').substring(arr2.length-p, 0)
+          if (t.classList.contains('fromRight')) {
+            pt1 = arr2.join('').substring(arr2.length-p, 0)
+            pt2 = arr1.join('').substring(arr1.length-p)
+          }
+          t.innerHTML = pt1 + pt2 //update text
+        }
+
+      }
+    })
+  }
+})
+
+function randChar(){
+  let c = "abcdefghijklmnopqrstuvwxyz1234567890!@@#$^&*()…æ_+-=;[]/~`"
+  c = c[Math.floor(Math.random() * c.length)]
+  return (Math.random()>0.5)? c : c.toUpperCase()
+}
+</script>

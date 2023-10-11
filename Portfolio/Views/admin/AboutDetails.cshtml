@@ -1,0 +1,168 @@
+﻿@model Portfolio.Models.AboutDetailsTbl
+
+@{
+    ViewBag.Title = "AboutDetails";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Forms</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="~/Admin"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Form Layouts</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!--end breadcrumb-->
+
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <h6 class="mb-0 text-uppercase">About Details Form</h6>
+                    <hr>
+                    <div class="card border-top border-0 border-4 border-primary">
+                        <div class="card-body p-5">
+                            <div class="card-title d-flex align-items-center">
+                                <h5 class="mb-0 text-primary">Details</h5>
+                            </div>
+                            <hr>
+
+                            @using (Html.BeginForm("AboutDetails", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "row g-3" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.HiddenFor(model => model.Id)
+
+                                <div class="col-md-4 col-12">
+                                    <label for="Name" class="form-label">Name</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Name" name="Name" type="text" class="form-control" id="Name" placeholder="Name">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <label for="NickName" class="form-label">NickName</label>
+                                    <div class="input-group">
+                                        <input value="@Model.NickName" name="NickName" type="text" class="form-control" id="NickName" placeholder="NickName">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-12">
+                                    <label for="Role" class="form-label">Role</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Role" name="Role" type="text" class="form-control" id="Role" placeholder="Role">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-12">
+                                    <label for="Logo" class="form-label">Logo</label>
+                                    <div class="input-group">
+                                        <input name="Logo" class="form-control" type="file" id="Logo">
+                                        <img src="@Url.Content("~/Content/projectAssets/Images/About/" + @Model.Logo)" class="img-fluid" height="50" width="50" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-12">
+                                    <label for="Image1" class="form-label">Image1</label>
+                                    <div class="input-group">
+                                        <input name="Image1" class="form-control" type="file" id="Image1">
+                                        <img src="@Url.Content("~/Content/projectAssets/Images/About/" + @Model.Image1)" class="img-fluid" height="50" width="50" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-12">
+                                    <label for="Image2" class="form-label">Image2</label>
+                                    <div class="input-group">
+                                        <input name="Image2" class="form-control" type="file" id="Image2">
+                                        <img src="@Url.Content("~/Content/projectAssets/Images/About/" + @Model.Image2)" class="img-fluid" height="50" width="50" />
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-12">
+                                    <label for="About" class="form-label">About Section</label>
+                                    <div class="input-group">
+                                        <textarea name="About" class="form-control" id="About" rows="3">@Model.About</textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6 col-12">
+                                    <label for="Address" class="form-label">Address</label>
+                                    <textarea value="@Model.Address" name="Address" class="form-control" id="Address" rows="3">@Model.Address</textarea>
+                                </div>
+
+                                <div class="col-md-4 col-12">
+                                    <label for="Email" class="form-label">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-transparent"><i class='bx bxs-message'></i></span>
+                                        <input value="@Model.Email" name="Email" type="text" class="form-control" id="Email" placeholder="Email Address">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-12">
+                                    <label for="Mobile" class="form-label">Mobile</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Mobile" name="Mobile" type="text" class="form-control" id="Mobile" placeholder="Mobile No">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 col-12">
+                                    <label for="Instagram" class="form-label">Instagram</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Instagram" name="Instagram" type="text" class="form-control" id="Instagram" placeholder="Instagram ">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 col-12">
+                                    <label for="Twitter" class="form-label">Twitter</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Twitter" name="Twitter" type="text" class="form-control" id="Twitter" placeholder="Twitter ">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 col-12">
+                                    <label for="Youtube" class="form-label">Youtube</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Youtube" name="Youtube" type="text" class="form-control" id="Youtube" placeholder="Youtube ">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 col-12">
+                                    <label for="Linkedin" class="form-label">Linkedin</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Linkedin" name="Linkedin" type="text" class="form-control" id="Linkedin" placeholder="Linkedin ">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-12">
+                                    <label for="Github" class="form-label">Github</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Github" name="Github" type="text" class="form-control" id="Github" placeholder="Github ">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 col-12">
+                                    <label for="Resume" class="form-label">Resume</label>
+                                    <div class="input-group">
+                                        <input value="@Model.Resume" name="Resume" type="file" class="form-control" id="Resume">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary px-5 btn-sm"><i class="bx bxs-edit"></i> Update</button>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+    </div>
+</div>
+
+

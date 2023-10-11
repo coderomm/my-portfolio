@@ -1,0 +1,135 @@
+﻿@model Portfolio.Models.ProjectsTbl
+
+@{
+    ViewBag.Title = "Edit Project";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="page-wrapper">
+    <div class="page-content">
+        <!--breadcrumb-->
+        <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
+            <div class="breadcrumb-title pe-3">Forms</div>
+            <div class="ps-3">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0 p-0">
+                        <li class="breadcrumb-item">
+                            <a href="javascript:;"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Form Layouts</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <!--end breadcrumb-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h6 class="mb-0 text-uppercase">Update Project & Details</h6>
+                <hr>
+                <div class="card border-top border-0 border-4 border-primary">
+                    <div class="card-body p-5">
+                        <div class="card-title d-flex align-items-center">
+
+                            <h5 class="mb-0 text-primary">Update Project & Details</h5>
+                        </div>
+                        <hr>
+                        @using (Html.BeginForm("EditProject", "Admin", FormMethod.Post, new { @enctype = "multipart/form-data", @class = "row g-3" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <input name="Id" value="@Model.Id" hidden />
+
+                            <div class="col-lg-6">
+                                <label for="Title" class="form-label">Project Title</label>
+                                <div class="input-group">
+                                    <input value="@Model.Title" name="Title" type="text" class="form-control" id="Title" placeholder="Project Title">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="Subtitle" class="form-label">Project Subtitle</label>
+                                <div class="input-group">
+                                    <input value="@Model.Subtitle" name="Subtitle" type="text" class="form-control" id="Subtitle" placeholder="Project Subtitle">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="Image1" class="form-label">Project Image1</label>
+                                <div class="input-group">
+                                    <input name="Image1" class="form-control" type="file" id="Image1">
+                                    <img src="@Url.Content("~/Content/projectAssets/Images/Projects/" + @Model.Image1)" class="img-fluid" height="50" width="50" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <label for="Image2" class="form-label">Project Image2</label>
+                                <div class="input-group">
+                                    <input name="Image2" class="form-control" type="file" id="Image2">
+                                    <img src="@Url.Content("~/Content/projectAssets/Images/Projects/" + @Model.Image2)" class="img-fluid" height="50" width="50" />
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12">
+                                <label for="Detail" class="form-label">Project Detail</label>
+                                <textarea name="Detail" class="form-control" id="Detail" placeholder="Enter About Project" rows="3">@Model.Detail</textarea>
+                            </div>
+
+                            <div class="col-lg-4 col-12">
+                                <label for="Clientname" class="form-label">Project Clientname</label>
+                                <div class="input-group">
+                                    <input value="@Model.Clientname" name="Clientname" type="text" class="form-control" id="Clientname" placeholder="Project Clientname">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-12">
+                                <label for="Year" class="form-label">Project Year</label>
+                                <div class="input-group">
+                                    <input value="@Model.Year" name="Year" type="text" class="form-control" id="Year" placeholder="Project Year">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4 col-12">
+                                <label for="Framework" class="form-label">Project Framework</label>
+                                <div class="input-group">
+                                    <input value="@Model.Framework" name="Framework" type="text" class="form-control" id="Framework" placeholder="Project Framework">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <label for="GithubLink" class="form-label">Project Github Link</label>
+                                <div class="input-group">
+                                    <input value="@Model.GithubLink" name="GithubLink" type="text" class="form-control" id="GithubLink" placeholder="Github Link">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-12">
+                                <label for="LiveLink" class="form-label">Project LiveLink</label>
+                                <div class="input-group">
+                                    <input value="@Model.LiveLink" name="LiveLink" type="text" class="form-control" id="LiveLink" placeholder="Project LiveLink">
+                                </div>
+                            </div>
+
+
+                            <div class="col-lg-12">
+                                <button type="submit" class="btn btn-primary px-5 me-2 btn-sm">Update</button>
+                                <a href="~/Admin/AddProject" class="btn btn-outline-primary px-5 btn-sm">Go Back</a>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#Detail'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
